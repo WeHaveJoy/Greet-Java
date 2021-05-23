@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Greeting {
     /*
     greet = username + language to greet in
@@ -28,7 +27,7 @@ public class Greeting {
 
         while (exit) {
             int i = 0;
-            System.out.println("1. greet 'greet [name] in [language]' \n2. check who's been greeted 'greeted' or 'greeted [name]' \n3. clear the guest list 'clear'  \n4. count numbers of greeted people 'count' \n5. leave programme 'exit'");
+            System.out.println("1. greet 'greet [name] in [language]' \n2. check who's been greeted 'greeted' or 'greeted [name]' \n3. clear the guest list 'clear' \n4. count numbers of greeted people 'count' \n5. leave programme 'exit'");
             String userInput = s.nextLine().toLowerCase();
             String words[] = userInput.split(" ");
 
@@ -37,11 +36,11 @@ public class Greeting {
                 i += 1;
             }
 
-            if (words[0].equals("greet") && i >= 1) { //we could remove "in" from the input and have this equate to 2
+            if (words[0].equals("greet") && i >= 2) { //we could remove "in" from the input and have this equate to 2
                 if (i <= 2) {
                     greet(words[1], "");
                     users.add(words[1]);
-                } else if (i >= 3) {
+                } else if (i >= 4) {
                     greet(words[1], words[3]);
                     users.add(words[1]);
                     language.add(words[3]);
@@ -65,13 +64,13 @@ public class Greeting {
                 System.out.println("All information Cleared");
             }
             else if (userInput.equals("exit")) {
-                System.out.println("Auf Wiedersehen");
+                System.out.println("Good bye.");
                 exit();
             }
             else if (words[0].equals("count")) {
                 counter(users);
             } else { //none of the above arguments are met
-                System.out.println("Please separate words with space e.g. greet Sino in isiXhosa");
+                System.out.println("Please separate words with space e.g. greet Sino in isixhosa");
             }
 
         }
@@ -80,13 +79,13 @@ public class Greeting {
     //THE METHODS
     static void greet(String name, String lan) {
         switch (lan) {
-            case "isiXhosa":
+            case "isixhosa":
                 System.out.println("Mholo, " + name);
                 break;
-            case "isiZulu":
+            case "isizulu":
                 System.out.println("Sawubona, " + name);
                 break;
-            case "Sesotho":
+            case "sesotho":
                 System.out.println("Dumela, " + name);
                 break;
             default:
